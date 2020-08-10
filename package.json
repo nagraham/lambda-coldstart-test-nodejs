@@ -1,0 +1,21 @@
+{
+  "name": "lambda-coldstart-test-nodejs",
+  "version": "1.0.0",
+  "description": "A package containing basic NodeJS lambda handlers for testing cold starts",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist/ && rm -rf out/",
+    "pack": "webpack --mode development",
+    "release": "npm run clean && npm run pack"
+  },
+  "author": "Alex Graham",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.0.27",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
