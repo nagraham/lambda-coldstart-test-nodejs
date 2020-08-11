@@ -12,6 +12,7 @@
   "author": "Alex Graham",
   "license": "MIT",
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.60",
     "@types/node": "^14.0.27",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
