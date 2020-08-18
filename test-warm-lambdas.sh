@@ -8,19 +8,19 @@ if [[ -z $functionName ]]; then
   exit 1
 fi
 
-for i in {1..50}
+for memorySize in $memorySizes
 do
-  for memorySize in $memorySizes
+  echo "Starting for memory=$memorySize"
+
+  echo "Updating $functionName memory size"
+  aws lambda update-function-configuration --function-name $functionName --memory-size $memorySize > /dev/null
+
+  echo "Wait five seconds ..."
+  sleep 5
+
+  for i in {1..50}
   do
-    echo "iteration=$i memory=$memorySize"
-
-    echo "Updating $functionName"
-    aws lambda update-function-configuration --function-name $functionName --memory-size $memorySize > /dev/null
-
-    echo "Wait five seconds ..."
-    sleep 5
-
-    echo "Invoking the lambda"
+    echo "Invoking the lambda memory=$memorySize ($i/50)"
     aws lambda invoke --function-name $functionName --payload "{}" ./lambda-response.json > /dev/null
 
     echo "Wait one second ..."

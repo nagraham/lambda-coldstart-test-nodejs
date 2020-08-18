@@ -1,3 +1,5 @@
 import { helloWorldHandler } from "./hello-world-handler";
+import { putTodoHandler } from "./put-todo-handler";
 
-export const helloWorld: Function = helloWorldHandler;
+export const helloWorld = helloWorldHandler;
+export const putTodo = putTodoHandler;
